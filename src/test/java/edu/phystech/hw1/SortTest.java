@@ -7,8 +7,43 @@ import org.junit.jupiter.api.Assertions;
 
 public class SortTest {
 
+    private static int[] merge(int[] left, int[] right) {
+        int l = left.length, r = right.length;
+        int[] res = new int[l + r];
+        int i = 0, j = 0, k = 0;
+        while (i < l && j < r) {
+            if (left[i] <= right[j]) {
+                res[k++] = left[i++];
+            } else {
+                res[k++] = right[j++];
+            }
+        }
+        while (i < l) {
+            res[k++] = left[i++];
+        }
+        while (j < r) {
+            res[k++] = right[j++];
+        }
+        return res;
+    }
+
     private static int[] sort(int[] nums) {
-        return nums;
+        int n = nums.length;
+        int mid = n / 2;
+        if (n <= 1) {
+            return nums;
+        }
+        int[] left = new int[mid];
+        int[] right = new int[n - mid];
+        for (int i = 0; i < mid; i++) {
+            left[i] = nums[i];
+        }
+        for (int i = mid; i < n; i++) {
+            right[i - mid] = nums[i];
+        }
+        left = sort(left);
+        right = sort(right);
+        return merge(left, right);
     }
 
     @Test
