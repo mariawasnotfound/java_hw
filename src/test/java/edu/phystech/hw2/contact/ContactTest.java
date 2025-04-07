@@ -3,9 +3,8 @@ package edu.phystech.hw2.contact;
 import java.util.List;
 import java.util.stream.Stream;
 
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-
+import org.junit.jupiter.api.Test;
 
 public class ContactTest {
 
