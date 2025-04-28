@@ -11,7 +11,18 @@ import org.junit.jupiter.api.Test;
 public class InverseMapKeyValuesTest {
 
     public static <K, V> Map<V, Collection<K>> inverse(Map<? extends K, ? extends V> map) {
-        return null;
+        Map<V, Collection<K>> invertedMap = new java.util.HashMap<>();
+
+        for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
+            K key = entry.getKey();
+            V value = entry.getValue();
+
+            if (!invertedMap.containsKey(value)) {
+                invertedMap.put(value, new java.util.ArrayList<>());
+            }
+            invertedMap.get(value).add(key);
+        }
+        return invertedMap;
     }
 
     @Test

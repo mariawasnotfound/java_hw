@@ -8,6 +8,28 @@ import edu.phystech.hw3.shape.Shape;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.function.BiFunction;
+
+class Functional {
+
+    public static <T, R> List<R> map(List<T> list, Function<T, R> mapper) {
+        List<R> res = new ArrayList<>();
+        for (T elem : list) {
+            res.add(mapper.apply(elem));
+        }
+        return res;
+    }
+
+    public static <T, R> R reduce(List<T> list, BiFunction<R, T, R> reducer, R initial) {
+        R res = initial;
+        for (T elem : list) {
+            res = reducer.apply(res, elem);
+        }
+        return res;
+    }
+}
+
 public class FunctionalTest {
 
     @Test
