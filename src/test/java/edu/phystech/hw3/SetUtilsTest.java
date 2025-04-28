@@ -2,9 +2,38 @@ package edu.phystech.hw3;
 
 import java.util.Collections;
 import java.util.Set;
+import java.util.HashSet;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+class SetUtils {
+
+    public static <T> Set<T> union(Set<T> first, Set<T> second) {
+        Set<T> res = new HashSet<>(first);
+        res.addAll(second);
+        return res;
+    }
+
+    public static <T> Set<T> intersection(Set<T> first, Set<T> second) {
+        Set<T> res = new HashSet<>(first);
+        res.retainAll(second);
+        return res;
+    }
+
+    public static <T> Set<T> difference(Set<T> first, Set<T> second) {
+        Set<T> res = new HashSet<>(first);
+        res.removeAll(second);
+        return res;
+    }
+
+    public static <T> Set<T> symmetricDifference(Set<T> first, Set<T> second) {
+        Set<T> union = union(first, second);
+        Set<T> intersection = intersection(first, second);
+        union.removeAll(intersection);
+        return union;
+    }
+}
 
 public class SetUtilsTest {
 
