@@ -1,4 +1,4 @@
-package edu.phystech.hw4;
+package edu.phystech.hw4.stepper;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import edu.phystech.hw4.stepper.Stepper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

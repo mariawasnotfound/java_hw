@@ -1,4 +1,4 @@
-package edu.phystech.hw4;
+package edu.phystech.hw4.lock;
 
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -6,7 +6,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.IntStream;
 
-import edu.phystech.hw4.lock.CASTicketLock;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -23,6 +22,7 @@ class Counter {
         return value;
     }
 }
+
 public class CASTicketLockTest {
 
     @Test
